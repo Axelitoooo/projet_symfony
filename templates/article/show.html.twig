@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title%}
+{{ article.nom }}
+{% endblock %}
+
+{% block body %}
+
+    <link href="{{ asset('style.css') }}" rel="stylesheet"/>
+
+    <div class="topnav">
+        <a class="active" href="{{ path('home') }}">Accueil</a>
+        <a href="{{ path('article_new') }}">Ajouter un article</a>
+    </div>
+
+    <main role="main">
+
+        <h1><strong><span class="blue">&lt;</span>A&N<span class="blue">&gt;</span> <span class="yellow">Sporstwear</pan></strong></h1>
+
+        <table class="container">
+            <thead>
+                <tr>
+                    <th><h1>Nom</h1></th>
+                    <th><h1>Marque</h1></th>
+                    <th><h1>Prix</h1></th>
+                    <th><h1>Description</h1></th>
+                    <th><h1>Quantité</h1></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ article.nom|slice(0, 50) }}</td>
+                    <td>{{ article.marque|slice(0, 50) }}</td>
+                    <td>{{ article.prix|slice(0, 50) }}</td>
+                    <td>{{ article.description|slice(0, 50) }}</td>
+                    <td>{{ article.quantite|slice(0, 50) }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </main><!-- /.container -->
+{% endblock %}
+

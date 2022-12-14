@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block title%} Ajouter un Article {% endblock %}
+
+{% block body %}
+
+    <link href="{{ asset('styleform.css') }}" rel="stylesheet"/>
+
+    <div class="topnav">
+        <a class="active" href="{{ path('home') }}">Accueil</a>
+        <a href="{{ path('article_new') }}">Ajouter un article</a>
+    </div>
+
+    <h1><strong>Ajouter un article</strong></h1>
+
+    {{ form_start(form) }}
+
+        <div class="container">
+        <form action="action_page.php">
+
+            {{ form_label(form.nom) }}
+            {{ form_errors(form.nom) }}
+            {{ form_widget(form.nom) }}
+
+            {{ form_label(form.marque) }}
+            {{ form_errors(form.marque) }}
+            {{ form_widget(form.marque) }}
+
+            {{ form_label(form.prix) }}
+            {{ form_errors(form.prix) }}
+            {{ form_widget(form.prix) }}
+
+            {{ form_label(form.description) }}
+            {{ form_errors(form.description) }}
+            {{ form_widget(form.description) }}
+
+            
+            <label>Quantité</label>
+            {{ form_errors(form.quantite) }}
+            {{ form_widget(form.quantite) }}
+
+            <input type="submit" value="Ajouter un article">
+        </form>
+        </div>
+
+
+    {{ form_end(form) }}
+{% endblock %}

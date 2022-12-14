@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block tittle %} Among us{% endblock %}
+
+
+{% block body %}
+
+    <link href="{{ asset('style.css') }}" rel="stylesheet"/>
+
+    <div class="topnav">
+        <a href="{{ path('home') }}">Accueil</a>
+        <a href="{{ path('article_new') }}">Ajouter un article</a>
+    </div>
+
+    <main role="main">
+
+        <h1><strong><span class="blue"></span>A&N<span class="blue"></span> <span class="yellow">Sporstwear</pan></strong></h1>
+
+        <table class="container">
+            <thead>
+                <tr>
+                    <th><h1>Article</h1></th>
+                    <th><h1>Quantité</h1></th>
+                    <th><h1>Voir</h1></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for article in articles %}
+                    <tr>
+                        <td>{{ article.nom|slice(0, 50) }}</td>
+                        <td>{{ article.quantite|slice(0, 50) }}</td>
+                        <td><a href="{{ path('article_show', {"id":article.id}) }}">Voir</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main><!-- /.container -->
+
+{% endblock %}
